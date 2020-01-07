@@ -53,10 +53,7 @@ export function getPuppeteer(config) {
   switch (config.browser.toLowerCase()) {
     case 'chromium':
       // eslint-disable-next-line global-require, import/no-dynamic-require, import/no-extraneous-dependencies
-      return require('puppeteer')
-    case 'firefox':
-      // eslint-disable-next-line global-require, import/no-dynamic-require, import/no-extraneous-dependencies
-      return require('puppeteer-firefox')
+      return require('chrome-aws-lambda').puppeteer()
     default:
       throw new Error(
         `Error: "browser" config option is given an unsupported value: ${browser}`,
